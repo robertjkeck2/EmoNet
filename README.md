@@ -1,5 +1,5 @@
 # pwdl
-### Distributed, DNN Password Cracking
+### Rate the guessability of your password with deep learning
 
 
 ### References
