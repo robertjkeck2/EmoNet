@@ -1,10 +1,10 @@
-# pwdl
-### Rate the guessability of your password with deep learning
+# EmoTe
+### Audio-only Emotion Detection using Student-Teacher Distillation
 
 
 ### References
- - https://github.com/Mahedi-61/Distributed-Password-Cracker
- - https://arxiv.org/pdf/1709.00440.pdf
- - https://github.com/gsurma/password_cracker
- - https://www.cs.tufts.edu/comp/116/archive/fall2018/achen.pdf
- - https://github.com/jmmcatee/cracklord
+ - https://arxiv.org/pdf/1503.02531.pdf
+ - https://arxiv.org/ftp/arxiv/papers/1802/1802.06209.pdf
+ - https://personal.utdallas.edu/~john.hansen/Publications/CP-ICASSP13-KaushikSangwanHansen-Sentiment-0008485.pdf
+ - https://github.com/shaharpit809/Audio-Sentiment-Analysis
+ - https://arxiv.org/pdf/1904.08138v1.pdf
