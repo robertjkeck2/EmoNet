@@ -7,6 +7,7 @@
 ### Datasets
  - [RAVDESS](https://github.com/robertjkeck2/EmoTe/tree/master/data/RAVDESS)
  - [SAVEE](https://github.com/robertjkeck2/EmoTe/tree/master/data/SAVEE)
+ - [IEMOCAP](https://github.com/robertjkeck2/EmoTe/tree/master/data/IEMOCAP)
 
 ### References
  - https://arxiv.org/pdf/1503.02531.pdf
@@ -25,6 +26,7 @@
  - https://sentic.net/benchmarking-multimodal-sentiment-analysis.pdf
  - https://github.com/PiotrSobczak/speech-emotion-recognition
  - https://sail.usc.edu/iemocap/
+ - http://immortal.multicomp.cs.cmu.edu/raw_datasets/processed_data/
 
 ### Citations
  - Livingstone SR, Russo FA (2018) The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS): A dynamic, multimodal set of facial and vocal expressions in North American English. PLoS ONE 13(5): e0196391. https://doi.org/10.1371/journal.pone.0196391.
