@@ -11,6 +11,12 @@
  - https://github.com/shaharpit809/Audio-Sentiment-Analysis
  - https://arxiv.org/pdf/1904.08138v1.pdf
  - https://zenodo.org/record/1188976
+ - https://github.com/MITESHPUTHRANNEU/Speech-Emotion-Analyzer
+ - https://github.com/tyiannak/pyAudioAnalysis
+ - https://github.com/pyannote/pyannote-audio
 
 ### Citations
  - Livingstone SR, Russo FA (2018) The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS): A dynamic, multimodal set of facial and vocal expressions in North American English. PLoS ONE 13(5): e0196391. https://doi.org/10.1371/journal.pone.0196391.
+ - S. Haq and P.J.B. Jackson, "Multimodal Emotion Recognition", In W. Wang (ed), Machine Audition: Principles, Algorithms and Systems, IGI Global Press, ISBN 978-1615209194, chapter 17, pp. 398-423, 2010.
+ - S. Haq and P.J.B. Jackson. "Speaker-Dependent Audio-Visual Emotion Recognition", In Proc. Int'l Conf. on Auditory-Visual Speech Processing, pages 53-58, 2009.
+ - S. Haq, P.J.B. Jackson, and J.D. Edge. Audio-Visual Feature Selection and Reduction for Emotion Classification. In Proc. Int'l Conf. on Auditory-Visual Speech Processing, pages 185-190, 2008
