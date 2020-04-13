@@ -7,11 +7,11 @@ The SAVEE database was recorded from four native English male speakers (identifi
 Each of the 480 files has a unique filename. The filename consists of a 3-part alpha-numerical identifier (e.g., DC_a01.wav). These identifiers define the following characteristics:
 
 ### Filename identifiers
-Speaker (DC, JE, JK, KL).
-Sentiment (a = happy, d = disgust, f = fear, h = happiness, n = neutral, sa = sadness, su = surprise).
-Sentence #.
+ - Speaker (DC, JE, JK, KL).
+ - Sentiment (a = happy, d = disgust, f = fear, h = happiness, n = neutral, sa = sadness, su = surprise).
+ - Sentence #.
 
 ### Filename example: DC_a01.wav
-Speaker DC (DC)
-Angry (a)
-Sentence (01)
+ - Speaker DC (DC)
+ - Angry (a)
+ - Sentence (01)
