@@ -1,0 +1,14 @@
+/tmp
+deepspeech-0.6.1-models
+._deepspeech-0.6.1-models
+deepspeech-0.6.1-models.tar.gz
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
