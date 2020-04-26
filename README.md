@@ -6,9 +6,10 @@
 
 - <https://docs.google.com/presentation/d/1_KhNUIATO6hUClqAUfZ_jjpc9R3Ij_ds4bHnsRWE4tg/edit?usp=sharing>
 
-## Work Documentatino
+## Work Documentation
 
 - RAVDESS speech-to-text done with Deepspeech: <https://github.com/mozilla/DeepSpeech>
+- RAVDESS teacher mode: <https://github.com/marcogdepinto/Emotion-Classification-Ravdess>
 
 ## Useful
 
