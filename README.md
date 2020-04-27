@@ -1,6 +1,6 @@
-# EmoTe
+# EmoNet
 
-## Audio-only Emotion Detection using Student-Teacher Distillation
+## Audio-only Emotion Detection using Federated Learning
 
 ## Proposal
 
