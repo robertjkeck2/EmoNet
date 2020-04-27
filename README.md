@@ -40,6 +40,7 @@
 - <https://github.com/PiotrSobczak/speech-emotion-recognition>
 - <https://sail.usc.edu/iemocap/>
 - <http://immortal.multicomp.cs.cmu.edu/raw_datasets/processed_data/>
+- https://en.wikipedia.org/wiki/Mel-frequency_cepstrum
 
 ## Citations
 
