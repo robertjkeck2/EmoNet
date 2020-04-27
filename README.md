@@ -19,7 +19,6 @@
 
 - [RAVDESS](https://github.com/robertjkeck2/EmoTe/tree/master/data/RAVDESS)
 - [SAVEE](https://github.com/robertjkeck2/EmoTe/tree/master/data/SAVEE)
-- [IEMOCAP](https://github.com/robertjkeck2/EmoTe/tree/master/data/IEMOCAP)
 
 ## References
 
