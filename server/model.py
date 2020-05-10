@@ -1,3 +1,16 @@
+import keras
+from keras import backend as K
+from keras.layers import Dense, Embedding
+from keras.layers import Input, Flatten, Dropout, Activation
+from keras.layers import Conv1D, MaxPooling1D
+from keras.models import Model
+from keras.models import Sequential
+import matplotlib.pyplot as plt
+
+from config import BASE_MODEL_PATH
+from utils import load_dataset
+
+
 class EmoNet:
     def __init__(self, model=None):
         self.model = model if model else create_emonet_model()
@@ -51,3 +64,13 @@ def create_emonet_model():
     model.add(Dense(8))
     model.add(Activation('softmax'))
     return model
+
+
+BATCH_SIZE = 10
+EPOCHS = 500
+X_train, X_test, y_train, y_test = load_dataset(40, 0.8)
+base_net = EmoNet()
+results = base_net.fit(X_train, X_test, y_train, y_test, BATCH_SIZE, EPOCHS)
+
+plt.plot(results.history['loss'])
+base_net.save(BASE_MODEL_PATH)
