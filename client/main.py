@@ -3,6 +3,7 @@ import os
 from flask import Flask, jsonify, render_template, request, session
 import numpy as np
 
+from config import RAVDESS_EMOTION
 from utils import (
     calculate_mel_frequency_cepstral_coefficients,
     get_net_from_server,
@@ -37,6 +38,19 @@ def process_audio():
     send_update_to_server(net)
     return jsonify({"success": True})
 
+@app.route("/api/v1/predict", methods=["POST"])
+def predict():
+    f = request.files.get("audio_data")
+    f.save("static/tmp/tmp_pred.wav")
+    mfccs = [calculate_mel_frequency_cepstral_coefficients(
+        "static/tmp/tmp_pred.wav", 40)]
+    if len(mfccs) > 0:
+        mfccs = np.expand_dims(np.asarray(mfccs), axis=2)
+    net = get_net_from_server()
+    pred = net.predict(mfccs)
+    label_input = f"{(pred[0]+1):02d}"
+    label = RAVDESS_EMOTION[label_input]
+    return label
 
 if __name__ == "__main__":
     app.run(threaded=False)
