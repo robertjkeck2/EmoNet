@@ -32,7 +32,7 @@ def get_prompt():
 
 
 def get_net_from_server():
-    url = "https://emonet-server.herokuapp.com/api/v1/send-model"
+    url = "https://api.emonet.xyz/api/v1/send-model"
     with requests.post(url, stream=True) as r:
         r.raise_for_status()
         with open("data/model.h5", 'wb') as f:
@@ -43,6 +43,6 @@ def get_net_from_server():
 
 def send_update_to_server(net):
     net.save("data/model.h5")
-    url = "https://emonet-server.herokuapp.com/api/v1/receive-update"
+    url = "https://api.emonet.xyz/api/v1/receive-update"
     files = {"file": open("data/model.h5","rb")}
     requests.post(url, files = files)
