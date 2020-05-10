@@ -12,3 +12,5 @@ deepspeech-0.6.1-models.tar.gz
 
 # Local History for Visual Studio Code
 .history/
+
+env/
