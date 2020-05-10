@@ -125,3 +125,7 @@ def load_dataset(num_coefs, train_pct, dataset="RAVDESS"):
 
     return X_train, X_test, y_train, y_test
 
+
+def average_weights(devices):
+    weight_sum = sum(np.array(net.model.get_weights()) for net in devices)
+    return weight_sum / len(devices)
