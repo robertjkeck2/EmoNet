@@ -43,4 +43,4 @@ def test_model(dataset):
 
 
 if __name__ == "__main__":
-    app.run(threaded=False, port=8000)
+    app.run(threaded=False)

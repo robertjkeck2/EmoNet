@@ -1,5 +1,5 @@
 dispatch:
-  - url: 'emonet.xym/*'
+  - url: 'emonet.xyz/*'
     service: default
   - url: 'api.emonet.xyz/*'
     service: emonet-server
