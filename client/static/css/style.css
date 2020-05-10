@@ -5,67 +5,86 @@ p {
   margin-top: 1rem;
 }
 a:hover {
-  color:#23527c;
+  color: #23527c;
 }
 a:visited {
   color: #8d75a3;
 }
 
 body {
-	line-height: 1.5;
-	font-family: sans-serif;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color:black;
-	margin:2em;
+  line-height: 1.5;
+  font-family: sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: black;
+  margin: auto;
+  height: 100%;
 }
 
 h1 {
-	text-decoration: underline red;
-	text-decoration-thickness: 3px;
-	text-underline-offset: 6px;
-	font-size: 220%;
-	font-weight: bold;
+  text-decoration: underline rebeccapurple;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+  font-size: 220%;
+  font-weight: bold;
 }
 
 h2 {
-	font-weight: bold;
-	color: #005A9C;
-	font-size: 140%;
-	text-transform: uppercase;
+  font-weight: bold;
+  color: #005a9c;
+  font-size: 140%;
+  text-transform: uppercase;
 }
 
-red {
-	color: red;
+#wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 70%;
+  height: 70%;
+  background: #eee;
+  margin: auto;
+  position: relative;
+  text-align: center;
+  margin-top: 5%;
 }
 
 #controls {
-  display: flex;
-  margin-top: 2rem;
-  max-width: 28em;
-} 
+  width: 100%;
+  margin: auto;
+}
+
+#intro {
+  width: 100%;
+  margin: auto;
+  text-align: left;
+  padding: 30px;
+}
 
 button {
   flex-grow: 1;
   height: 3.5rem;
-  min-width: 2rem;
+  width: 25%;
+  margin: auto;
   border: none;
   border-radius: 0.15rem;
-  background: #ed341d;
-  margin-left: 2px;
+  background: rebeccapurple;
   box-shadow: inset 0 -0.15rem 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  color:#ffffff;
+  color: #ffffff;
   font-weight: bold;
   font-size: 1.5rem;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
-button:hover, button:focus {
+button:hover,
+button:focus {
   outline: none;
-  background: #c72d1c;
+  background: rebeccapurple;
 }
 
 button::-moz-focus-inner {
@@ -81,26 +100,32 @@ button:disabled {
   pointer-events: none;
   background: lightgray;
 }
-button:first-child {
-  margin-left: 0;
-}
 
 audio {
   display: block;
   width: 100%;
-  margin-top: 0.2rem;
+  text-align: center;
+}
+
+ol {
+  width: 100%;
+  margin: auto;
+  padding: 10px !important;
 }
 
 li {
   list-style: none;
-  margin-bottom: 1rem;
+  margin: auto;
+  width: 100%;
 }
 
 #formats {
-  margin-top: 0.5rem;
-  font-size: 80%;
+  display: none;
+  width: 100%;
+  margin: auto;
 }
 
-#recordingsList{
-	max-width: 28em;
+#recordingsList {
+  width: 100%;
+  margin: auto;
 }
