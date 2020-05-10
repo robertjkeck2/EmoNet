@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request, send_from_directory
 
 from config import BASE_MODEL_PATH
 from model import EmoNet
-from utils import average_weights
+from utils import average_weights, load_dataset
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
@@ -31,6 +31,15 @@ def receive_updates():
 def send_model():
     return send_from_directory("data",
                                "base_model.h5", as_attachment=True)
+
+
+@app.route("/api/v1/test-model", methods=["POST"])
+def test_model():
+    X_test, _, y_test, _ = load_dataset(40, None, dataset="SAVEE")
+    emonet = model.from_file("data/base_model.h5")
+    score, acc = emonet.model.evaluate(X_test, y_test,
+                                       batch_size=10)
+    return jsonify({"score": score, "acc": acc})
 
 
 if __name__ == "__main__":
