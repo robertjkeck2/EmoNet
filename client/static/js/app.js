@@ -1,5 +1,4 @@
 URL = window.URL || window.webkitURL;
-
 var gumStream;
 var rec;
 var input;
@@ -50,7 +49,7 @@ function createDownloadLink(blob) {
   li.appendChild(au);
 
   var upload = document.createElement("a");
-  upload.href = "#";
+  upload.href = "";
   upload.innerHTML = "<button>Submit</button>";
   upload.addEventListener("click", function (event) {
     var xhr = new XMLHttpRequest();
