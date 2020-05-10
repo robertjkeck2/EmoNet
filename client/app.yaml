@@ -1,11 +1,6 @@
-runtime: python37
+runtime: custom
+threadsafe: yes
+env: flex
 
 env_variables:
-    SECRET_KEY: "4d0EWYMpkGgNTGUiuX074KvMmjZjR2Sn"
-
-handlers:
-- url: /static
-  static_dir: static
-
-- url: /.*
-  script: auto
+  SECRET_KEY: 4d0EWYMpkGgNTGUiuX074KvMmjZjR2Sn

@@ -1,9 +1,7 @@
-runtime: python37
+runtime: custom
+threadsafe: yes
 service: emonet-server
+env: flex
 
 env_variables:
-    SECRET_KEY: "edqp2KHbnLkau32YVw1r83wnk9msSP3R"
-
-handlers:
-- url: /.*
-  script: auto
+  SECRET_KEY: edqp2KHbnLkau32YVw1r83wnk9msSP3R
