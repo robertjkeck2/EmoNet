@@ -4,6 +4,9 @@ import librosa
 import numpy as np
 import requests
 
+from model import EmoNet
+
+
 EMOTIONS = {
     "calmness": 1,
     "happiness": 2,
@@ -13,6 +16,7 @@ EMOTIONS = {
     "disgust": 6,
     "surprise": 7
 }
+emonet = EmoNet()
 
 
 def calculate_mel_frequency_cepstral_coefficients(file, num_coefs):
@@ -29,4 +33,16 @@ def get_prompt():
 
 def get_net_from_server():
     url = "http://localhost:8000/api/v1/send-model"
-    resp = requests.post(url)
+    with requests.post(url, stream=True) as r:
+        r.raise_for_status()
+        with open("data/model.h5", 'wb') as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
+    net = emonet.from_file("data/model.h5")
+    return net
+
+def send_update_to_server(net):
+    net.save("data/model.h5")
+    url = "http://localhost:8000/api/v1/receive-update"
+    files = {"file": open("data/model.h5","rb")}
+    requests.post(url, files = files)
