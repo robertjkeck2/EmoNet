@@ -1,8 +1,9 @@
 import os
 
 from flask import Flask, jsonify, request, send_from_directory
+import numpy as np
 
-from config import BASE_MODEL_PATH
+from config import BASE_MODEL_PATH, RAVDESS_EMOTION
 from model import EmoNet
 from utils import average_weights, load_dataset
 
@@ -40,6 +41,19 @@ def test_model(dataset):
     score, acc = emonet.model.evaluate(X_test, y_test,
                                        batch_size=10)
     return jsonify({"score": score, "acc": acc})
+
+
+@app.route("/api/v1/predict", methods=["POST"])
+def predict():
+    request_json = request.get_json()
+    raw_mfccs = request_json.get("mfccs")
+    emonet = model.from_file("data/base_model.h5")
+    mfccs = np.expand_dims(raw_mfccs, axis=0)
+    mfccs = np.expand_dims(mfccs, axis=2)
+    pred = emonet.predict(mfccs)
+    label_input = f"{(pred[0]+1):02d}"
+    label = RAVDESS_EMOTION[label_input]
+    return jsonify({"label": label, "val": int(pred[0]), "mfccs": raw_mfccs})
 
 
 if __name__ == "__main__":
