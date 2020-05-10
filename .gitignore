@@ -14,3 +14,5 @@ deepspeech-0.6.1-models.tar.gz
 .history/
 
 env/
+server/data/RAVDESS/
+server/data/SAVEE/
