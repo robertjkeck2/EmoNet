@@ -33,9 +33,9 @@ def send_model():
                                "base_model.h5", as_attachment=True)
 
 
-@app.route("/api/v1/test-model", methods=["POST"])
-def test_model():
-    X_test, _, y_test, _ = load_dataset(40, None, dataset="SAVEE")
+@app.route("/api/v1/test-model/<dataset>", methods=["POST"])
+def test_model(dataset):
+    X_test, _, y_test, _ = load_dataset(40, None, dataset=dataset)
     emonet = model.from_file("data/base_model.h5")
     score, acc = emonet.model.evaluate(X_test, y_test,
                                        batch_size=10)
