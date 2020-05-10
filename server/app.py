@@ -2,6 +2,7 @@ import os
 
 from flask import Flask, jsonify, request
 
+from config import BASE_MODEL_PATH
 from model import EmoNet
 
 app = Flask(__name__)
@@ -16,6 +17,9 @@ def receive_updates():
 
 @app.route("/api/v1/send-model", methods=["POST"])
 def send_model():
+    device = {
+        "net": model.from_file(BASE_MODEL_PATH),
+    }
     return jsonify({"success": True})
 
 
