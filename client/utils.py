@@ -2,6 +2,7 @@ import random
 
 import librosa
 import numpy as np
+import requests
 
 EMOTIONS = {
     "calmness": 1,
@@ -24,3 +25,8 @@ def calculate_mel_frequency_cepstral_coefficients(file, num_coefs):
 def get_prompt():
     emotion, val = random.choice(list(EMOTIONS.items()))
     return {"emotion": emotion, "val": val}
+
+
+def get_net_from_server():
+    url = "http://localhost:8000/api/v1/send-model"
+    resp = requests.post(url)
