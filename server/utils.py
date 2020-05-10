@@ -1,3 +1,4 @@
+import fnmatch
 import os
 
 import librosa
@@ -11,12 +12,6 @@ from config import (
     SAVEE_FILEPATH,
     SAVEE_TO_RADVESS_CONVERSION
 )
-
-
-FILENAME_PARSERS = {
-    "RAVDESS": parse_ravdess_filename,
-    "SAVEE": parse_savee_filename,
-}
 
 
 def calculate_mel_frequency_cepstral_coefficients(file, num_coefs):
@@ -47,6 +42,7 @@ def parse_ravdess_filename(filename, base_path=RAVDESS_FILEPATH):
 
 def _savee_filename_helper(filename):
     file_params = os.path.splitext(filename)[0].split("_")
+    print(file_params)
     file_params = (file_params[0], file_params[1][:-2])
     sample = {}
     for param_name, param_info in SAVEE_FILENAME_FORMAT.items():
@@ -64,6 +60,12 @@ def parse_savee_filename(filename):
     }
 
 
+FILENAME_PARSERS = {
+    "RAVDESS": parse_ravdess_filename,
+    "SAVEE": parse_savee_filename,
+}
+
+
 def prepare_data(files, data_set, num_coefs):
     X = []
     y = []
@@ -75,28 +77,6 @@ def prepare_data(files, data_set, num_coefs):
         X.append(mfc_coefs)
         y.append(parsed_file.get("label"))
     return X, y
-
-
-def initialize_ravdess_savee_data(num_coefs):
-    savee_files = [x for x in os.listdir(
-        SAVEE_FILEPATH) if fnmatch.fnmatch(x, '*.wav')]
-    ravdess_files = []
-
-    for actor in os.listdir(RAVDESS_FILEPATH):
-        if actor not in (".DS_Store", "README.md"):
-            for f in os.listdir(RAVDESS_FILEPATH / actor):
-                ravdess_files.append(f)
-
-    ravdess_X, ravdess_y = prepare_data(ravdess_files, "RAVDESS", num_coefs)
-    savee_X, savee_y = prepare_data(savee_files, "SAVEE", num_coefs)
-
-    X = np.asarray(ravdess_X + savee_X)
-    y = np.asarray(ravdess_y + savee_y)
-
-    np.savetxt(
-        "/data/RAVDESS+SAVEE_MFCC/X_{}.csv".format(num_coefs), X, delimiter=",")
-    np.savetxt(
-        "/data/RAVDESS+SAVEE_MFCC/y_{}.csv".format(num_coefs), y, delimiter=",")
 
 
 def initialize_ravdess_data(num_coefs):
@@ -113,25 +93,26 @@ def initialize_ravdess_data(num_coefs):
     y = np.asarray(ravdess_y)
 
     np.savetxt(
-        "/data/RAVDESS_MFCC/X_{}.csv".format(num_coefs), X, delimiter=",")
+        "data/RAVDESS_MFCC/X.csv".format(num_coefs), X, delimiter=",")
     np.savetxt(
-        "/data/RAVDESS_MFCC/y_{}.csv".format(num_coefs), y, delimiter=",")
+        "data/RAVDESS_MFCC/y.csv".format(num_coefs), y, delimiter=",")
 
 
 def initialize_savee_data(num_coefs):
-    savee_files = os.listdir(SAVEE_FILEPATH)
+    savee_files = [x for x in os.listdir(
+        SAVEE_FILEPATH) if fnmatch.fnmatch(x, '*.wav')]
     savee_X, savee_y = prepare_data(savee_files, "SAVEE", num_coefs)
-    np.savetxt("/data/SAVEE_MFCC/X_{}.csv".format(num_coefs),
+    np.savetxt("data/SAVEE_MFCC/X.csv".format(num_coefs),
                savee_X, delimiter=",")
-    np.savetxt("/data/SAVEE_MFCC/y_{}.csv".format(num_coefs),
+    np.savetxt("data/SAVEE_MFCC/y.csv".format(num_coefs),
                savee_y, delimiter=",")
 
 
 def load_dataset(num_coefs, train_pct, dataset="RAVDESS"):
     X = np.loadtxt(
-        f"/data/{dataset}_MFCC/X.csv", delimiter=',')
+        f"data/{dataset}_MFCC/X.csv", delimiter=',')
     y = np.loadtxt(
-        f"/data/{dataset}_MFCC/y.csv", delimiter=',')
+        f"data/{dataset}_MFCC/y.csv", delimiter=',')
 
     if train_pct is not None:
         X_train, X_test, y_train, y_test = train_test_split(
@@ -144,5 +125,3 @@ def load_dataset(num_coefs, train_pct, dataset="RAVDESS"):
 
     return X_train, X_test, y_train, y_test
 
-
-initialize_savee_data(40)

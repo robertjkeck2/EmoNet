@@ -1,3 +1,5 @@
+from pathlib import Path
+
 EMOTE_PATH = Path('data')
 RAVDESS_FILEPATH = EMOTE_PATH / "RAVDESS"
 SAVEE_FILEPATH = EMOTE_PATH / "SAVEE"
