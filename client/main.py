@@ -1,3 +1,4 @@
+import logging
 import os
 
 from flask import Flask, jsonify, render_template, request, session
@@ -14,7 +15,7 @@ from utils import (
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
-
+CLOUD_STORAGE_BUCKET = os.getenv('CLOUD_STORAGE_BUCKET')
 
 @app.route("/", methods=["GET"])
 def index():
@@ -25,12 +26,13 @@ def index():
 @app.route("/api/v1/process-audio", methods=["POST"])
 def process_audio():
     f = request.files.get("audio_data")
-    f.save("static/tmp/tmp.wav")
+    f.save("/tmp/tmp.wav")
     prompt = session.pop("prompt", None)
     mfccs = [calculate_mel_frequency_cepstral_coefficients(
-        "static/tmp/tmp.wav", 40)]
+        "/tmp/tmp.wav", 40)]
     val = prompt.get("val")
     if len(mfccs) > 0 and val:
+        logging.info(mfccs)
         mfccs = np.expand_dims(np.asarray(mfccs), axis=2)
         val = np.asarray([prompt.get("val")])
     net = get_net_from_server()
@@ -41,12 +43,14 @@ def process_audio():
 @app.route("/api/v1/predict", methods=["POST"])
 def predict():
     f = request.files.get("audio_data")
-    f.save("static/tmp/tmp_pred.wav")
+    f.save("/tmp/tmp_pred.wav")
     mfccs = [calculate_mel_frequency_cepstral_coefficients(
-        "static/tmp/tmp_pred.wav", 40)]
+        "/tmp/tmp_pred.wav", 40)]
     if len(mfccs) > 0:
+        logging.info(mfccs)
         mfccs = np.expand_dims(np.asarray(mfccs), axis=2)
     net = get_net_from_server()
+    print(net.model.get_weights())
     pred = net.predict(mfccs)
     label_input = f"{(pred[0]+1):02d}"
     label = RAVDESS_EMOTION[label_input]

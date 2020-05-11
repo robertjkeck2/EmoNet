@@ -5,3 +5,4 @@ env: flex
 
 env_variables:
   SECRET_KEY: edqp2KHbnLkau32YVw1r83wnk9msSP3R
+  CLOUD_STORAGE_BUCKET: emonet-static

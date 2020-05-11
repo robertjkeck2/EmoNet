@@ -48,12 +48,13 @@ function createDownloadLink(blob) {
   au.src = url;
   li.appendChild(au);
 
-  var upload = document.createElement("button");
-  upload.innerHTML = "Submit";
-  li.appendChild(upload);
   var predict = document.createElement("button");
   predict.innerHTML = "Predict";
   li.appendChild(predict);
+  var upload = document.createElement("button");
+  upload.innerHTML = "Submit";
+  li.appendChild(upload);
+
   recordingsList.innerHTML = "";
   recordingsList.appendChild(li);
 

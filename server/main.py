@@ -9,6 +9,7 @@ from utils import average_weights, load_dataset
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+CLOUD_STORAGE_BUCKET = os.getenv('CLOUD_STORAGE_BUCKET')
 model = EmoNet()
 all_updates = {"updates": []}
 
@@ -16,8 +17,8 @@ all_updates = {"updates": []}
 @app.route("/api/v1/receive-update", methods=["POST"])
 def receive_updates():
     f = request.files.get("file")
-    f.save("data/tmp.h5")
-    net = model.from_file("data/tmp.h5")
+    f.save("/tmp/tmp.h5")
+    net = model.from_file("/tmp/tmp.h5")
     all_updates["updates"].append(net)
     if len(all_updates["updates"]) > 10:
         w_avg = average_weights(all_updates["updates"])
