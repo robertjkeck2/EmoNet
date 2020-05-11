@@ -58,14 +58,19 @@ function createDownloadLink(blob) {
   recordingsList.appendChild(li);
 
   upload.addEventListener("click", function (event) {
+    upload.disabled = true;
+    predict.disabled = true;
     var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == XMLHttpRequest.DONE) {
+        recordingsList.innerHTML = "";
+        location.reload();
+      }
+    };
     var fd = new FormData();
     fd.append("audio_data", blob, filename);
-    xhr.open("POST", "/api/v1/process-audio", false);
+    xhr.open("POST", "/api/v1/process-audio", true);
     xhr.send(fd);
-    xhr.open("GET", "/", false);
-    xhr.send(null);
-    recordingsList.innerHTML = "";
   });
 
   predict.addEventListener("click", function (event) {
@@ -78,7 +83,7 @@ function createDownloadLink(blob) {
     };
     var fd = new FormData();
     fd.append("audio_data", blob, filename);
-    xhr.open("POST", "/api/v1/predict", false);
+    xhr.open("POST", "/api/v1/predict", true);
     resp = xhr.send(fd);
   });
 }
