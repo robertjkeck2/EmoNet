@@ -18,3 +18,4 @@ server/data/RAVDESS/
 server/data/SAVEE/
 app.yaml
 __pycache__/
+credentials.json
