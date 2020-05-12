@@ -12,8 +12,8 @@
 
 EmoNet is hosted on Google Cloud Platform and can be accessed at https://emonet.xyz.
 
-- [EmoNet Server](https://github.com/robertjkeck2/EmoNet/server/README.md)
-- [EmoNet Client](https://github.com/robertjkeck2/EmoNet/client/README.md)
+- [EmoNet Server](https://github.com/robertjkeck2/EmoNet/blob/master/server/README.md)
+- [EmoNet Client](https://github.com/robertjkeck2/EmoNet/blob/master/client/README.md)
 
 ## Datasets
 
