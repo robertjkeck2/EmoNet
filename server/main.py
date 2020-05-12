@@ -11,7 +11,7 @@ from utils import average_weights, load_dataset
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 storage_client = storage.Client()
-bucket = storage_client.bucket("emonet-static")
+bucket = storage_client.bucket("emonet-static-v2")
 blob = bucket.blob("base_model.h5")
 blob.download_to_filename("/tmp/base_model.h5")
 model = EmoNet()

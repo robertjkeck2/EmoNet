@@ -3,5 +3,9 @@ threadsafe: yes
 service: emonet-server
 env: flex
 
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 2
+
 env_variables:
   SECRET_KEY: edqp2KHbnLkau32YVw1r83wnk9msSP3R
