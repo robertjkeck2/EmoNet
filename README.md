@@ -8,17 +8,17 @@
 
 ## Work Documentation
 
-- RAVDESS speech-to-text done with Deepspeech: <https://github.com/mozilla/DeepSpeech>
-- RAVDESS teacher mode: <https://github.com/marcogdepinto/Emotion-Classification-Ravdess>
+- EmoNet is a federated learning system for emotion detection using audio features (MFCCs). The system consists of a server and a client, the server acting as a centralized source-of-truth for the most recently updated model and the client acting as a public-facing webpage for any user to run an inference or submit for model improvement. The system allows for boostrapping an audio-only model with user-provided, self-labeled data.
 
-## Useful
+EmoNet is hosted on Google Cloud Platform and can be accessed at https://emonet.xyz.
 
-- Speech-to-text: <https://colab.research.google.com/github/scgupta/yearn2learn/blob/master/speech/asr/python_speech_recognition_notebook.ipynb>
+- [EmoNet Server](https://github.com/robertjkeck2/EmoNet/server/README.md)
+- [EmoNet Client](https://github.com/robertjkeck2/EmoNet/client/README.md)
 
 ## Datasets
 
-- [RAVDESS](https://github.com/robertjkeck2/EmoTe/tree/master/data/RAVDESS)
-- [SAVEE](https://github.com/robertjkeck2/EmoTe/tree/master/data/SAVEE)
+- [RAVDESS](https://github.com/robertjkeck2/EmoNet/tree/master/data/RAVDESS)
+- [SAVEE](https://github.com/robertjkeck2/EmoNet/tree/master/data/SAVEE)
 
 ## References
 
