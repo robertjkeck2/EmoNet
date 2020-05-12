@@ -4,6 +4,13 @@ The EmoNet Server is the central server used to store and updated the models tra
 
  - Backend API
 
+ Run the backend API by following these instructions:
+ ```
+ virtualenv env
+ pip install -r requirements.txt
+ python main.py
+ ```
+
  The backend API consists of a Flask app that runs the api.emonet.xyz server. The API has four endpoints `/receive-update`, `/send-model`, `/test-model`, and `/predict`. 
 
  `/receive-update` receives the model updates from each client, stores them temporarily in memory, and then updates the base model every 10 updates from the client. This is the core logic for the federation of the model.

@@ -18,6 +18,13 @@ There are two main sections:
 
  - Backend API
 
+ Run the backend API by following these instructions:
+ ```
+ virtualenv env
+ pip install -r requirements.txt
+ python main.py
+ ```
+
  The backend API consists of a Flask app that runs the emonet.xyz site. The API has two endpoints `/process-audio` and `/predict`. 
 
  `/process-audio` calculates the MFCCs from the recorded audio file, pulls the most current model from the central server, trains the model using the MFCCs and label provided by the user, and sends the updated model back to the server. This could be optimized if some storage was implemented but the service was made ephemeral instead.
