@@ -2,6 +2,8 @@
 
 ## Audio-only Emotion Detection using Federated Learning
 
+Contributors: Adar Arnon and John Keck
+
 ## Proposal
 
 - <https://docs.google.com/presentation/d/1_KhNUIATO6hUClqAUfZ_jjpc9R3Ij_ds4bHnsRWE4tg/edit?usp=sharing>
